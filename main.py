@@ -53,7 +53,7 @@ def main():
         # 4. 워드 파일 생성
         print("\n4. Word 파일 생성 중...")
         
-        output_filename = create_docx(title, script, translation)
+        output_filename = create_docx(title, script, translation, video_url)
         
         print(f"\n✅ 완료! Word 파일이 생성되었습니다")
         

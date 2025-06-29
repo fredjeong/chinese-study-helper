@@ -1,12 +1,15 @@
 from docx import Document
 
 
-def create_docx(title, script, translation):
+def create_docx(title, script, translation, video_url):
     # 문서 객체 생성
     doc = Document()
 
     # 제목
     doc.add_heading(title, level=1)
+
+    doc.add_page_break()
+    doc.add_paragraph(f"영상 링크: {video_url}")
 
     # 스크립트 삽입
     doc.add_heading("스크립트", level=2)
