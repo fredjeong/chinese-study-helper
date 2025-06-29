@@ -5,9 +5,7 @@ from translator import translate_script
 from docx_creator import create_docx
 import os
 from datetime import datetime
-# from dotenv import load_dotenv
-
-# load_dotenv()
+from io import BytesIO
 
 
 # 웹페이지 설정
@@ -20,10 +18,6 @@ st.set_page_config(
 # API 키 설정
 os.environ['YOUTUBE_API_KEY'] = st.secrets.get('YOUTUBE_API_KEY', os.getenv('YOUTUBE_API_KEY'))
 os.environ['GEMINI_API_KEY'] = st.secrets.get('GEMINI_API_KEY', os.getenv('GEMINI_API_KEY'))
-
-# GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
-# YOUTUBE_API_KEY = os.getenv('YOUTUBE_API_KEY')
-
 
 # 본문
 st.title("🎬 유튜브 영상 → Word 변환기")
@@ -61,14 +55,9 @@ if st.button("Word 파일 만들기", type="primary"):
                 st.success("번역 완료!")
 
             with st.spinner("Word 파일을 생성하는 중..."):
-                # Word 파일을 직접 저장하는 대신, 메모리에서 바로 생성합니다.
-                # docx_creator.py를 약간 수정해야 합니다. 아래 설명 참조.
-                # 임시로 파일 이름을 만들고, 내용을 메모리에 저장합니다.
                 file_name = f"{datetime.now().strftime('%Y%m%d')}_{title}.docx"
-                doc = create_docx(title, script, translation) # docx_creator가 Document 객체를 반환하도록 수정
-                
-                # 메모리에 있는 Word 파일 데이터를 임시로 저장
-                from io import BytesIO
+                doc = create_docx(title, script, translation)
+            
                 file_stream = BytesIO()
                 doc.save(file_stream)
                 file_stream.seek(0) # 스트림의 시작으로 포인터를 이동

@@ -1,12 +1,10 @@
-from docx import Document
-from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.enum.style import WD_STYLE_TYPE
-
 from title_extractor import extract_title
 from transcriber import transcribe_video
 from translator import translate_script
 from docx_creator import create_docx
 import os
+from dotenv import load_dotenv
+
 
 def main():
     print("=" * 60)
@@ -61,10 +59,10 @@ def main():
         
     except KeyboardInterrupt:
         print("\n\n사용자에 의해 중단되었습니다.")
-    
-    # except Exception as e:
-        # print(f"\n오류가 발생했습니다: {e}")
-        # print("API 키가 올바르게 설정되어 있는지 확인해주세요.")
 
 if __name__ == "__main__":
+    load_dotenv()
+    os.environ['YOUTUBE_API_KEY'] = os.getenv('YOUTUBE_API_KEY')
+    os.environ['GEMINI_API_KEY'] = os.getenv('GEMINI_API_KEY')
+
     main() 

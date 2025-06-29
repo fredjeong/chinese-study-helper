@@ -1,12 +1,7 @@
 from google import genai
 from google.genai import types
-
-# from dotenv import load_dotenv
 import os
 
-
-# load_dotenv()
-# GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 def translate_script(script):
     """
@@ -60,6 +55,7 @@ def translate_script(script):
         print(f"번역 중 오류 발생: {e}")
         return None
 
+# 테스트
 if __name__ == "__main__":
     script = """
     那走马楼三国吴简中，数量最多的简牍是什么呢？作为临湘的官府文书，这里数量最多的，就是关于税收的简牍，大约有三万余枚。比方说，有一个非常具有代表性的简册，嘉禾吏民田家襎。它是由2194枚木简组成的。嘉禾是年号嘛，吏民是指这里的百姓，田家是种庄稼的人嘛。襎是一种文书制度了。木简的顶部啊，有一些很有意思的条纹。后来发现，这是"同文"字样。古人把它切成三片，每一片都写一模一样的内容，其实这就是凭证啊。就相当于我们现在三联单的形式。谁拿着这些凭证呢？就是具体负责这件事的官府机构，监管机构、农民本人。核验的时候，给它拼到一起，能够拼出那个"同"字来。那这就是一个真文书。那你说是拼起这个"同"的过程叫做什么呀？我们可以叫做合对不对？所以这个行为可以叫什么呀？叫合同嘛。嘉禾吏民田家襎，也就被视为中国迄今发现的最早的、形制最大的田租类实物合同券书。

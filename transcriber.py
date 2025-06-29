@@ -1,12 +1,7 @@
 from google import genai
 from google.genai import types
-
-# from dotenv import load_dotenv
 import os
 
-
-# load_dotenv()
-# GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 def transcribe_video(video_url):
     """
@@ -39,6 +34,7 @@ def transcribe_video(video_url):
         print(f"스크립트 추출 중 오류 발생: {e}")
         return None
 
+# 테스트
 if __name__ == "__main__":
     video_url = 'https://youtu.be/i-IUu1yyZcs?feature=shared'
     script = transcribe_video(video_url)

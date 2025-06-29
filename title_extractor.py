@@ -1,14 +1,5 @@
-from google import genai
-from google.genai import types
-
 from googleapiclient.discovery import build
-# from dotenv import load_dotenv
 import os
-
-
-# load_dotenv()
-
-# YOUTUBE_API_KEY = os.getenv('YOUTUBE_API_KEY')
 
 def extract_title(video_url):
     """
@@ -43,6 +34,7 @@ def extract_title(video_url):
         print(f"제목 추출 중 오류 발생: {e}")
         return None
 
+# 테스트
 if __name__ == "__main__":
     video_url = 'https://youtu.be/i-IUu1yyZcs?feature=shared'
     title = extract_title(video_url)

@@ -1,8 +1,5 @@
 from docx import Document
-from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.enum.style import WD_STYLE_TYPE
 
-from datetime import datetime
 
 def create_docx(title, script, translation):
     # 문서 객체 생성
@@ -19,8 +16,8 @@ def create_docx(title, script, translation):
     doc.add_heading("번역", level=2)
     doc.add_paragraph(translation)
 
-    # 현재 작업 경로에 저장 (로컬 테스트용)
+    # 현재 작업 경로에 저장 (로컬에서 작업하는 경우 주석 해제)
     # doc.save(f"{datetime.now().strftime('%Y%m%d')}_{title}.docx")
 
-    # Document 객체 반환
+    # Document 객체 반환 (로컬에서 사용하는 경우 주석 처리)
     return doc
