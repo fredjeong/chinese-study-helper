@@ -1,12 +1,12 @@
 from google import genai
 from google.genai import types
 
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
 
 
-load_dotenv()
-GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+# load_dotenv()
+# GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 def translate_script(script):
     """
@@ -19,7 +19,7 @@ def translate_script(script):
         str: 번역된 텍스트
     """
     try:
-        client = genai.Client(api_key=GEMINI_API_KEY)
+        client = genai.Client(api_key=os.environ['GEMINI_API_KEY'])
         
         prompt = """
             당신은 중국어-한국어 번역 전문가입니다. 

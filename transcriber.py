@@ -1,12 +1,12 @@
 from google import genai
 from google.genai import types
 
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
 
 
-load_dotenv()
-GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+# load_dotenv()
+# GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 def transcribe_video(video_url):
     """
@@ -19,7 +19,7 @@ def transcribe_video(video_url):
         str: 영상 스크립트
     """
     try:
-        client = genai.Client(api_key=GEMINI_API_KEY)
+        client = genai.Client(api_key=os.environ['GEMINI_API_KEY'])
         
         response = client.models.generate_content(
             model='models/gemini-2.5-flash',

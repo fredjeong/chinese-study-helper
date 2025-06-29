@@ -5,9 +5,9 @@ from translator import translate_script
 from docx_creator import create_docx
 import os
 from datetime import datetime
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 
 # 웹페이지 설정

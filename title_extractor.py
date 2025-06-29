@@ -2,13 +2,13 @@ from google import genai
 from google.genai import types
 
 from googleapiclient.discovery import build
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
 
 
-load_dotenv()
+# load_dotenv()
 
-YOUTUBE_API_KEY = os.getenv('YOUTUBE_API_KEY')
+# YOUTUBE_API_KEY = os.getenv('YOUTUBE_API_KEY')
 
 def extract_title(video_url):
     """
@@ -30,7 +30,7 @@ def extract_title(video_url):
             raise ValueError("지원하지 않는 유튜브 URL 형식입니다.")
 
         # 동영상 정보 요청
-        youtube = build('youtube', 'v3', developerKey=YOUTUBE_API_KEY)
+        youtube = build('youtube', 'v3', developerKey=os.environ['YOUTUBE_API_KEY'])
         request = youtube.videos().list(part="snippet", id=video_id)
         response = request.execute()
         
