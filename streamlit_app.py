@@ -10,26 +10,22 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-# --- 웹페이지 설정 ---
+# 웹페이지 설정
 st.set_page_config(
     page_title="유튜브 스크립트 변환기",
     page_icon="🎬",
     layout="centered"
 )
 
-# --- API 키 설정 ---
-# Streamlit 배포 시에는 'Secrets'를 사용해야 합니다. 
-# st.secrets['YOUTUBE_API_KEY'] 와 st.secrets['GEMINI_API_KEY'] 처럼요.
-# 이 부분은 배포 단계에서 자세히 설명합니다.
-# 지금 당장 테스트할 때는 기존 .env 파일을 그대로 사용해도 됩니다.
-# os.environ['YOUTUBE_API_KEY'] = st.secrets.get('YOUTUBE_API_KEY', os.getenv('YOUTUBE_API_KEY'))
-# os.environ['GEMINI_API_KEY'] = st.secrets.get('GEMINI_API_KEY', os.getenv('GEMINI_API_KEY'))
+# API 키 설정
+os.environ['YOUTUBE_API_KEY'] = st.secrets.get('YOUTUBE_API_KEY', os.getenv('YOUTUBE_API_KEY'))
+os.environ['GEMINI_API_KEY'] = st.secrets.get('GEMINI_API_KEY', os.getenv('GEMINI_API_KEY'))
 
-GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
-YOUTUBE_API_KEY = os.getenv('YOUTUBE_API_KEY')
+# GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+# YOUTUBE_API_KEY = os.getenv('YOUTUBE_API_KEY')
 
 
-# --- 본문 ---
+# 본문
 st.title("🎬 유튜브 영상 → Word 변환기")
 st.divider()
 
